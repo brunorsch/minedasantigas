@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MineDasAntigas">
+    <output-path>$USER_HOME$/Desktop/minedasantigas/plugins</output-path>
+    <root id="archive" name="MineDasAntigas.jar">
+      <element id="module-output" name="minedasantigas" />
+    </root>
+  </artifact>
+</component>
