@@ -8,10 +8,12 @@ import java.util.Set;
 import org.bukkit.command.Command;
 
 import brunorsch.minedasantigas.fly.FlyCommand;
+import brunorsch.minedasantigas.home.HomeCommand;
 
 public class CommandRegistry {
     private final static Set<Command> commands = setOf(
-        new FlyCommand()
+        new FlyCommand(),
+        new HomeCommand()
     );
 
     public static void registerAll() {
