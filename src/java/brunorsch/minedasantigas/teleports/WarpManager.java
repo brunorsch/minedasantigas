@@ -5,6 +5,7 @@ import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 import static java.util.Optional.ofNullable;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -14,6 +15,12 @@ import brunorsch.minedasantigas.DasAntigas;
 
 public class WarpManager {
     private static final String WARP_CONFIG_PATH = "Warps.";
+
+    public static Set<String> list() {
+        return DasAntigas.inst().getConfig()
+            .getConfigurationSection("Warps")
+            .getKeys(false);
+    }
 
     public static void set(String warpName, Location location) {
         DasAntigas.inst().getConfig()

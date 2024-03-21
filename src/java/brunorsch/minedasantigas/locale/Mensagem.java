@@ -3,6 +3,7 @@ package brunorsch.minedasantigas.locale;
 public enum Mensagem {
     SEM_PERMISSAO(Tag.ERRO, "Tu não tem permissão, magrão."),
     USO_CORRETO(Tag.ERRO, "Uso correto: §e{comando}"),
+    USO_CORRETO_WARP(Tag.SUCESSO, "Warps: §e{warps}§a. §aUse §e/warp <Nome>§a para teleportar!"),
     WARP_DELETADO(Tag.SUCESSO, "Warp deletado!"),
     WARP_TELEPORTADO(Tag.SUCESSO, "Teleportado com sucesso!"),
     WARP_SETADO(Tag.SUCESSO, "Warp setado!"),
