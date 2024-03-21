@@ -2,6 +2,7 @@ package brunorsch.minedasantigas.teleports;
 
 import static brunorsch.minedasantigas.utils.CollectionUtils.mapOf;
 import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
+import static java.util.Collections.emptySet;
 import static java.util.Optional.ofNullable;
 
 import java.util.Optional;
@@ -17,9 +18,9 @@ public class WarpManager {
     private static final String WARP_CONFIG_PATH = "Warps.";
 
     public static Set<String> list() {
-        return DasAntigas.inst().getConfig()
-            .getConfigurationSection("Warps")
-            .getKeys(false);
+        return ofNullable(DasAntigas.inst().getConfig().getConfigurationSection("Warps"))
+            .map(sec -> sec.getKeys(false))
+            .orElse(emptySet());
     }
 
     public static void set(String warpName, Location location) {

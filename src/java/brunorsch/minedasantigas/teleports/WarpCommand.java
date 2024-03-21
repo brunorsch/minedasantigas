@@ -8,6 +8,7 @@ import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 import static java.util.Collections.singletonList;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Location;
@@ -23,9 +24,11 @@ public class WarpCommand extends PlayerCommand {
     @Override
     public void onCommand(final Player player, final String[] args) {
         if(args.length != 1) {
-            String warps = StringUtils.join(WarpManager.list(), ",");
+            final Set<String> warps = WarpManager.list();
 
-            player.sendMessage(msg(USO_CORRETO_WARP, pair("warps", warps)));
+            String warpsFormatados = warps.isEmpty() ? StringUtils.join(warps, ",") : "Nenhum :(";
+
+            player.sendMessage(msg(USO_CORRETO_WARP, pair("warps", warpsFormatados)));
             return;
         }
 
