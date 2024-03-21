@@ -9,16 +9,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 import brunorsch.minedasantigas.command.CommandRegistry;
 
 public class DasAntigas extends JavaPlugin {
+    private static DasAntigas instance;
     private static Logger logger;
 
     @Override
     public void onEnable() {
+        instance = this;
         logger = getLogger();
 
         CommandRegistry.registerAll();
 
         getLogger().info("Plugin inicializado");
         getLogger().info("By Bruno Preguiça");
+    }
+
+    public static DasAntigas inst() {
+        return instance;
     }
 
     public static Logger log() {

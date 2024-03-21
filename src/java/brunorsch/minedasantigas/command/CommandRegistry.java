@@ -9,11 +9,17 @@ import org.bukkit.command.Command;
 
 import brunorsch.minedasantigas.fly.FlyCommand;
 import brunorsch.minedasantigas.home.HomeCommand;
+import brunorsch.minedasantigas.teleports.DelwarpCommand;
+import brunorsch.minedasantigas.teleports.SetwarpCommand;
+import brunorsch.minedasantigas.teleports.WarpCommand;
 
 public class CommandRegistry {
     private final static Set<Command> commands = setOf(
+        new DelwarpCommand(),
         new FlyCommand(),
-        new HomeCommand()
+        new HomeCommand(),
+        new SetwarpCommand(),
+        new WarpCommand()
     );
 
     public static void registerAll() {
