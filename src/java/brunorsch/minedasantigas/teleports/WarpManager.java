@@ -32,6 +32,8 @@ public class WarpManager {
                 pair("pitch", location.getPitch()),
                 pair("yaw", location.getYaw())
             ));
+
+        DasAntigas.inst().saveConfig();
     }
 
     public static Optional<Location> getLocation(String warpName) {
@@ -49,5 +51,7 @@ public class WarpManager {
 
     public static void delete(String warpName) {
         DasAntigas.inst().getConfig().set(WARP_CONFIG_PATH + warpName, null);
+
+        DasAntigas.inst().saveConfig();
     }
 }

@@ -23,6 +23,11 @@ public class DasAntigas extends JavaPlugin {
         getLogger().info("By Bruno Preguiça");
     }
 
+    @Override
+    public void onDisable() {
+        saveConfig();
+    }
+
     public static DasAntigas inst() {
         return instance;
     }
