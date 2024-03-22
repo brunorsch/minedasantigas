@@ -22,7 +22,7 @@ public class DelwarpCommand extends PlayerCommand {
             return;
         }
 
-        if(args.length == 1) {
+        if(args.length != 1) {
             player.sendMessage(msg(USO_CORRETO, pair("comando", "/delwarp <Nome>")));
             return;
         }

@@ -22,8 +22,8 @@ public enum Mensagem {
 
     public enum Tag {
         AVISO("§e[§6§l!§r§e] "),
-        ERRO("§a[§2§l!§r§a] "),
-        SUCESSO("§c[§4§l§r§c] ");
+        ERRO("§c[§4§l!§r§c] "),
+        SUCESSO("§a[§2§l!§r§a] ");
         private final String valor;
 
         Tag(final String tag) {

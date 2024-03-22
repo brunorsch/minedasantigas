@@ -24,8 +24,8 @@ public class WarpManager {
     }
 
     public static void set(String warpName, Location location) {
-        DasAntigas.inst().getConfig()
-            .set(WARP_CONFIG_PATH + warpName, mapOf(
+        DasAntigas.config()
+            .set(WARP_CONFIG_PATH + warpName.toLowerCase(), mapOf(
                 pair("world", location.getWorld().getName()),
                 pair("x", location.getBlockX()),
                 pair("y", location.getBlockY()),
@@ -34,20 +34,21 @@ public class WarpManager {
                 pair("yaw", location.getYaw())
             ));
 
-        DasAntigas.inst().saveConfig();
+        DasAntigas.configSave();
     }
 
     public static Optional<Location> getLocation(String warpName) {
         final Optional<ConfigurationSection> section = ofNullable(
-            DasAntigas.inst().getConfig().getConfigurationSection(WARP_CONFIG_PATH + warpName));
+            DasAntigas.inst().getConfig().getConfigurationSection(WARP_CONFIG_PATH + warpName.toLowerCase()));
 
-        return section.map(safeSection -> new Location(
-            Bukkit.getWorld(safeSection.getName()),
-            safeSection.getDouble("x"),
-            safeSection.getDouble("y"),
-            safeSection.getDouble("z"),
-            (float) safeSection.getDouble("yaw"),
-            (float) safeSection.getDouble("pitch")));
+        return section
+            .map(safeSection -> new Location(
+                Bukkit.getWorld(safeSection.getString("world")),
+                safeSection.getDouble("x"),
+                safeSection.getDouble("y"),
+                safeSection.getDouble("z"),
+                (float) safeSection.getDouble("yaw"),
+                (float) safeSection.getDouble("pitch")));
     }
 
     public static void delete(String warpName) {

@@ -43,3 +43,7 @@ tasks.processResources {
 tasks.withType<Jar> {
     archiveFileName.set("MineDasAntigas.jar")
 }
+
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+}

@@ -22,7 +22,7 @@ public class SetwarpCommand extends PlayerCommand {
             return;
         }
 
-        if(args.length == 1) {
+        if(args.length != 1) {
             player.sendMessage(msg(USO_CORRETO, pair("comando", "/setwarp <Nome>")));
             return;
         }

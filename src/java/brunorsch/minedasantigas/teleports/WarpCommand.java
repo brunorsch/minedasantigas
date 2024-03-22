@@ -26,7 +26,7 @@ public class WarpCommand extends PlayerCommand {
         if(args.length != 1) {
             final Set<String> warps = WarpManager.list();
 
-            String warpsFormatados = warps.isEmpty() ? StringUtils.join(warps, ",") : "Nenhum :(";
+            String warpsFormatados = warps.isEmpty() ? "Nenhum :(" : StringUtils.join(warps, ", ") ;
 
             player.sendMessage(msg(USO_CORRETO_WARP, pair("warps", warpsFormatados)));
             return;
