@@ -1,16 +1,12 @@
 package brunorsch.minedasantigas.teleports;
 
-import static brunorsch.minedasantigas.utils.CollectionUtils.mapOf;
-import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 import static java.util.Collections.emptySet;
 import static java.util.Optional.ofNullable;
 
 import java.util.Optional;
 import java.util.Set;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.configuration.ConfigurationSection;
 
 import brunorsch.minedasantigas.DasAntigas;
 
@@ -24,31 +20,11 @@ public class WarpManager {
     }
 
     public static void set(String warpName, Location location) {
-        DasAntigas.config()
-            .set(WARP_CONFIG_PATH + warpName.toLowerCase(), mapOf(
-                pair("world", location.getWorld().getName()),
-                pair("x", location.getBlockX()),
-                pair("y", location.getBlockY()),
-                pair("z", location.getBlockZ()),
-                pair("pitch", location.getPitch()),
-                pair("yaw", location.getYaw())
-            ));
-
-        DasAntigas.configSave();
+        ConfigLocationHelper.set(WARP_CONFIG_PATH + warpName.toLowerCase(), location);
     }
 
     public static Optional<Location> getLocation(String warpName) {
-        final Optional<ConfigurationSection> section = ofNullable(
-            DasAntigas.inst().getConfig().getConfigurationSection(WARP_CONFIG_PATH + warpName.toLowerCase()));
-
-        return section
-            .map(safeSection -> new Location(
-                Bukkit.getWorld(safeSection.getString("world")),
-                safeSection.getDouble("x"),
-                safeSection.getDouble("y"),
-                safeSection.getDouble("z"),
-                (float) safeSection.getDouble("yaw"),
-                (float) safeSection.getDouble("pitch")));
+        return ConfigLocationHelper.get(WARP_CONFIG_PATH + warpName.toLowerCase());
     }
 
     public static void delete(String warpName) {

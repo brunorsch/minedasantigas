@@ -1,4 +1,4 @@
-package brunorsch.minedasantigas.teleports;
+package brunorsch.minedasantigas.teleports.warp;
 
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
 import static brunorsch.minedasantigas.locale.Mensagem.SEM_PERMISSAO;
@@ -9,6 +9,7 @@ import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 import org.bukkit.entity.Player;
 
 import brunorsch.minedasantigas.command.PlayerCommand;
+import brunorsch.minedasantigas.teleports.WarpManager;
 
 public class SetwarpCommand extends PlayerCommand {
     public SetwarpCommand() {

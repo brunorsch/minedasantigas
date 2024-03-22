@@ -1,4 +1,4 @@
-package brunorsch.minedasantigas.teleports;
+package brunorsch.minedasantigas.teleports.warp;
 
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
 import static brunorsch.minedasantigas.locale.Mensagem.TELEPORTADO_COM_SUCESSO;
@@ -15,6 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import brunorsch.minedasantigas.command.PlayerCommand;
+import brunorsch.minedasantigas.teleports.WarpManager;
 
 public class WarpCommand extends PlayerCommand {
     public WarpCommand() {
@@ -26,7 +27,7 @@ public class WarpCommand extends PlayerCommand {
         if(args.length != 1) {
             final Set<String> warps = WarpManager.list();
 
-            String warpsFormatados = warps.isEmpty() ? "Nenhum :(" : StringUtils.join(warps, ", ") ;
+            String warpsFormatados = warps.isEmpty() ? "Nenhum :(" : StringUtils.join(warps, ", ");
 
             player.sendMessage(msg(USO_CORRETO_WARP, pair("warps", warpsFormatados)));
             return;

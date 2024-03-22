@@ -9,10 +9,12 @@ import org.bukkit.command.Command;
 
 import brunorsch.minedasantigas.fly.FlyCommand;
 import brunorsch.minedasantigas.home.HomeCommand;
-import brunorsch.minedasantigas.teleports.DelwarpCommand;
-import brunorsch.minedasantigas.teleports.SetwarpCommand;
+import brunorsch.minedasantigas.teleports.spawn.SetspawnCommand;
+import brunorsch.minedasantigas.teleports.spawn.SpawnCommand;
+import brunorsch.minedasantigas.teleports.warp.DelwarpCommand;
+import brunorsch.minedasantigas.teleports.warp.SetwarpCommand;
 import brunorsch.minedasantigas.teleports.TpCommand;
-import brunorsch.minedasantigas.teleports.WarpCommand;
+import brunorsch.minedasantigas.teleports.warp.WarpCommand;
 
 public class CommandRegistry {
     private final static Set<Command> commands = setOf(
@@ -20,6 +22,8 @@ public class CommandRegistry {
         new FlyCommand(),
         new HomeCommand(),
         new SetwarpCommand(),
+        new SetspawnCommand(),
+        new SpawnCommand(),
         new TpCommand(),
         new WarpCommand()
     );
