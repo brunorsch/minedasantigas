@@ -11,6 +11,7 @@ import brunorsch.minedasantigas.fly.FlyCommand;
 import brunorsch.minedasantigas.home.HomeCommand;
 import brunorsch.minedasantigas.teleports.DelwarpCommand;
 import brunorsch.minedasantigas.teleports.SetwarpCommand;
+import brunorsch.minedasantigas.teleports.TpCommand;
 import brunorsch.minedasantigas.teleports.WarpCommand;
 
 public class CommandRegistry {
@@ -19,6 +20,7 @@ public class CommandRegistry {
         new FlyCommand(),
         new HomeCommand(),
         new SetwarpCommand(),
+        new TpCommand(),
         new WarpCommand()
     );
 

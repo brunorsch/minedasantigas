@@ -3,7 +3,7 @@ package brunorsch.minedasantigas.teleports;
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
 import static brunorsch.minedasantigas.locale.Mensagem.SEM_PERMISSAO;
 import static brunorsch.minedasantigas.locale.Mensagem.USO_CORRETO;
-import static brunorsch.minedasantigas.locale.Mensagem.WARP_SETADO;
+import static brunorsch.minedasantigas.locale.Mensagem.WARP_DELETADO;
 import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 
 import org.bukkit.entity.Player;
@@ -28,6 +28,6 @@ public class DelwarpCommand extends PlayerCommand {
         }
 
         WarpManager.delete(args[0]);
-        player.sendMessage(msg(WARP_SETADO));
+        player.sendMessage(msg(WARP_DELETADO));
     }
 }

@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class CollectionUtils {
+    @SafeVarargs
     public static <T> Set<T> setOf(T... elements) {
         return new HashSet<>(asList(elements));
     }

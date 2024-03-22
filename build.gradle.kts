@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "brunorsch.minedasantigas"
-version = "1.0.1"
+version = "1.1.0"
 
 repositories {
     mavenCentral()
@@ -13,6 +13,8 @@ repositories {
 
 dependencies {
     compileOnly(files("$serverDir\\craftbukkit.jar"))
+    compileOnly("org.projectlombok:lombok:1.18.32")
+    annotationProcessor("org.projectlombok:lombok:1.18.32")
 }
 
 sourceSets {

@@ -1,9 +1,9 @@
 package brunorsch.minedasantigas.teleports;
 
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
+import static brunorsch.minedasantigas.locale.Mensagem.TELEPORTADO_COM_SUCESSO;
 import static brunorsch.minedasantigas.locale.Mensagem.USO_CORRETO_WARP;
 import static brunorsch.minedasantigas.locale.Mensagem.WARP_NAO_ENCONTRADO;
-import static brunorsch.minedasantigas.locale.Mensagem.WARP_TELEPORTADO;
 import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 import static java.util.Collections.singletonList;
 
@@ -36,7 +36,7 @@ public class WarpCommand extends PlayerCommand {
 
         if(location.isPresent()) {
             player.teleport(location.get());
-            player.sendMessage(msg(WARP_TELEPORTADO));
+            player.sendMessage(msg(TELEPORTADO_COM_SUCESSO));
         } else {
             player.sendMessage(msg(WARP_NAO_ENCONTRADO));
         }

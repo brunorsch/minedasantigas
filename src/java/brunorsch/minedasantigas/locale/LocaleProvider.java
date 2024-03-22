@@ -1,6 +1,7 @@
 package brunorsch.minedasantigas.locale;
 
 import static brunorsch.minedasantigas.utils.CollectionUtils.mapOf;
+import static brunorsch.minedasantigas.utils.CollectionUtils.pair;
 
 import java.util.Map;
 
@@ -18,5 +19,9 @@ public class LocaleProvider {
 
     public static String msg(Mensagem mensagem, Map.Entry<String, String> entry) {
         return msg(mensagem, mapOf(entry));
+    }
+
+    public static String usoCorreto(String usoCorreto) {
+        return msg(Mensagem.USO_CORRETO, pair("comando", usoCorreto));
     }
 }
