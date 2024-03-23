@@ -9,8 +9,8 @@ import org.bukkit.command.Command;
 
 import brunorsch.minedasantigas.fly.FlyCommand;
 import brunorsch.minedasantigas.home.HomeCommand;
-import brunorsch.minedasantigas.teleports.spawn.SetspawnCommand;
-import brunorsch.minedasantigas.teleports.spawn.SpawnCommand;
+import brunorsch.minedasantigas.spawn.SetspawnCommand;
+import brunorsch.minedasantigas.spawn.SpawnCommand;
 import brunorsch.minedasantigas.teleports.warp.DelwarpCommand;
 import brunorsch.minedasantigas.teleports.warp.SetwarpCommand;
 import brunorsch.minedasantigas.teleports.TpCommand;

@@ -2,9 +2,11 @@ package brunorsch.minedasantigas.teleports;
 
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
 import static brunorsch.minedasantigas.locale.LocaleProvider.usoCorreto;
+import static brunorsch.minedasantigas.locale.Mensagem.MUNDO_NAO_ENCONTRADO;
 import static brunorsch.minedasantigas.locale.Mensagem.PLAYER_NAO_ENCONTRADO;
 import static brunorsch.minedasantigas.locale.Mensagem.TELEPORTADO_COM_SUCESSO;
 import static brunorsch.minedasantigas.locale.Mensagem.XYZ_DEVE_SER_NUMERO;
+import static java.util.Collections.singletonList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,10 +14,11 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import brunorsch.minedasantigas.command.PlayerCommand;
+import lombok.val;
 
 public class TpCommand extends PlayerCommand {
     public TpCommand() {
-        super("tp", "Teleporta para uma posição ou um jogador");
+        super("tp", "Teleporta para uma posição ou um jogador", singletonList("tppos"));
     }
 
     @Override
@@ -23,6 +26,7 @@ public class TpCommand extends PlayerCommand {
         if(args.length == 0 || args.length > 4) {
             player.sendMessage(usoCorreto("/tp <Jogador> - Ir até outro jogador"));
             player.sendMessage(usoCorreto("/tp <@/Jogador> <Outro jogador> - Puxar outro jogador. Com o @ puxa para sí."));
+            player.sendMessage(usoCorreto("/tp [Jogador] <X> <Y> <Z>"));
             player.sendMessage(usoCorreto("/tp [Mundo] <X> <Y> <Z>"));
             return;
         }
@@ -50,11 +54,20 @@ public class TpCommand extends PlayerCommand {
             return;
         }
 
+        val playerAlvo = (player.getName().equalsIgnoreCase(args[0])) ? player : Bukkit.getPlayer(args[0]);
+        val mundo = (playerAlvo == null) ? Bukkit.getWorld(args[0]) : player.getWorld();
+
         x = args[1];
         y = args[2];
         z = args[3];
 
-        tpToLoc(player, Bukkit.getWorld(args[0]), new CoordsValidator(x, y, z));
+        val coords = new CoordsValidator(x, y, z);
+
+        if(playerAlvo != null) {
+            tpPlayerAlvoToLoc(player, playerAlvo, mundo, coords);
+        } else {
+            tpToLoc(player, mundo, coords);
+        }
     }
 
     private void tpToAlvo(Player playerSolicitante, Player playerTeleportando, Player playerAlvo) {
@@ -68,8 +81,12 @@ public class TpCommand extends PlayerCommand {
     }
 
     private void tpToLoc(Player player, World mundo, CoordsValidator coords) {
+        tpPlayerAlvoToLoc(player, player, mundo, coords);
+    }
+
+    private void tpPlayerAlvoToLoc(Player player, Player playerAlvo, World mundo, CoordsValidator coords) {
         if(mundo == null) {
-            player.sendMessage(msg(PLAYER_NAO_ENCONTRADO));
+            player.sendMessage(msg(MUNDO_NAO_ENCONTRADO));
             return;
         }
 
@@ -77,7 +94,7 @@ public class TpCommand extends PlayerCommand {
             player.sendMessage(msg(XYZ_DEVE_SER_NUMERO));
         }
 
-        player.teleport(new Location(mundo, coords.getX(), coords.getY(), coords.getZ()));
+        playerAlvo.teleport(new Location(mundo, coords.getX(), coords.getY(), coords.getZ()));
         player.sendMessage(msg(TELEPORTADO_COM_SUCESSO));
     }
 }

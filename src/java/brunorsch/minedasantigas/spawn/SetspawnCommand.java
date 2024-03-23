@@ -1,4 +1,4 @@
-package brunorsch.minedasantigas.teleports.spawn;
+package brunorsch.minedasantigas.spawn;
 
 import static brunorsch.minedasantigas.locale.LocaleProvider.msg;
 import static brunorsch.minedasantigas.locale.Mensagem.SEM_PERMISSAO;
