@@ -10,7 +10,8 @@ import java.util.logging.Logger;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import brunorsch.minedasantigas.command.CommandRegistry;
+import brunorsch.minedasantigas.registry.CommandRegistry;
+import brunorsch.minedasantigas.registry.ListenerRegistry;
 
 public class DasAntigas extends JavaPlugin {
     private static DasAntigas instance;
@@ -27,6 +28,7 @@ public class DasAntigas extends JavaPlugin {
         config = YamlConfiguration.loadConfiguration(configFile);
 
         CommandRegistry.registerAll();
+        ListenerRegistry.registerAll(this);
 
         getLogger().info("Plugin inicializado");
         getLogger().info("By Bruno Preguiça");

@@ -1,4 +1,4 @@
-package brunorsch.minedasantigas.command;
+package brunorsch.minedasantigas.registry;
 
 import static brunorsch.minedasantigas.utils.CollectionUtils.setOf;
 import static brunorsch.minedasantigas.utils.internals.CommandMapWrapper.withCommandMap;
