@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "brunorsch.minedasantigas"
-version = "1.3.0" // Pick mover spawner
+version = "1.3.1" // Cor nas placas
 
 repositories {
     mavenCentral()

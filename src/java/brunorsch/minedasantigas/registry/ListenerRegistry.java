@@ -9,12 +9,14 @@ import org.bukkit.event.Listener;
 
 import brunorsch.minedasantigas.DasAntigas;
 import brunorsch.minedasantigas.mecanicas.SpawnerPickListener;
+import brunorsch.minedasantigas.placas.CustomizacaoPlacasListener;
 import brunorsch.minedasantigas.spawn.PlayerJoinSpawnListener;
 
 public class ListenerRegistry {
     private final static Set<Listener> listeners = setOf(
         new PlayerJoinSpawnListener(),
-        new SpawnerPickListener()
+        new SpawnerPickListener(),
+        new CustomizacaoPlacasListener()
     );
 
     public static void registerAll(DasAntigas plugin) {
