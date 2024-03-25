@@ -21,6 +21,10 @@ public class LocaleProvider {
         return msg(mensagem, mapOf(entry));
     }
 
+    public static String msg(Mensagem mensagem, String chave, String valor) {
+        return msg(mensagem, pair(chave, valor));
+    }
+
     public static String usoCorreto(String usoCorreto) {
         return msg(Mensagem.USO_CORRETO, pair("comando", usoCorreto));
     }
