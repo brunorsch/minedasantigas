@@ -1,11 +1,11 @@
-val serverDir = "${System.getProperty("user.home")}\\Desktop\\minedasantigas"
+val serverDir = "${System.getProperty("user.home")}\\Desktop\\MineDasAntigas"
 
 plugins {
     id("java")
 }
 
 group = "brunorsch.minedasantigas"
-version = "1.3.1" // Cor nas placas
+version = "1.4.0" // Locations
 
 repositories {
     mavenCentral()
@@ -14,6 +14,7 @@ repositories {
 dependencies {
     compileOnly(files("$serverDir\\craftbukkit.jar"))
     compileOnly("org.projectlombok:lombok:1.18.32")
+
     annotationProcessor("org.projectlombok:lombok:1.18.32")
 }
 

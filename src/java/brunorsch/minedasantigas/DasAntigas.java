@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import brunorsch.minedasantigas.data.DataManager;
 import brunorsch.minedasantigas.registry.CommandRegistry;
 import brunorsch.minedasantigas.registry.ListenerRegistry;
 
@@ -27,6 +28,7 @@ public class DasAntigas extends JavaPlugin {
         configFile = new File(getDataFolder().getPath(), "config.yml");
         config = YamlConfiguration.loadConfiguration(configFile);
 
+        DataManager.setup();
         CommandRegistry.registerAll();
         ListenerRegistry.registerAll(this);
 

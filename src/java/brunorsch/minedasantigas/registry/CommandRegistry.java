@@ -8,7 +8,12 @@ import java.util.Set;
 import org.bukkit.command.Command;
 
 import brunorsch.minedasantigas.fly.FlyCommand;
-import brunorsch.minedasantigas.home.HomeCommand;
+import brunorsch.minedasantigas.locations.home.HomeCommand;
+import brunorsch.minedasantigas.locations.home.SethomeCommand;
+import brunorsch.minedasantigas.locations.loja.LojaCommand;
+import brunorsch.minedasantigas.locations.loja.SetlojaCommand;
+import brunorsch.minedasantigas.locations.pwarp.PwarpCommand;
+import brunorsch.minedasantigas.locations.pwarp.SetpwarpCommand;
 import brunorsch.minedasantigas.spawn.SetspawnCommand;
 import brunorsch.minedasantigas.spawn.SpawnCommand;
 import brunorsch.minedasantigas.teleports.warp.DelwarpCommand;
@@ -21,6 +26,11 @@ public class CommandRegistry {
         new DelwarpCommand(),
         new FlyCommand(),
         new HomeCommand(),
+        new LojaCommand(),
+        new PwarpCommand(),
+        new SethomeCommand(),
+        new SetlojaCommand(),
+        new SetpwarpCommand(),
         new SetwarpCommand(),
         new SetspawnCommand(),
         new SpawnCommand(),
