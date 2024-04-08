@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "brunorsch.minedasantigas"
-version = "1.4.0" // Locations
+version = "1.5.0" // Suporte ao mod EnchantView
 
 repositories {
     mavenCentral()

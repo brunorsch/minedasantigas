@@ -11,6 +11,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import brunorsch.minedasantigas.data.DataManager;
+import brunorsch.minedasantigas.mods.EnchantViewModSupport;
 import brunorsch.minedasantigas.registry.CommandRegistry;
 import brunorsch.minedasantigas.registry.ListenerRegistry;
 
@@ -31,6 +32,7 @@ public class DasAntigas extends JavaPlugin {
         DataManager.setup();
         CommandRegistry.registerAll();
         ListenerRegistry.registerAll(this);
+        EnchantViewModSupport.create(this).onEnable();
 
         getLogger().info("Plugin inicializado");
         getLogger().info("By Bruno Preguiça");
@@ -39,6 +41,7 @@ public class DasAntigas extends JavaPlugin {
     @Override
     public void onDisable() {
         configSave();
+        EnchantViewModSupport.instance.onDisable();
     }
 
     public static DasAntigas inst() {

@@ -28,7 +28,8 @@ public enum Mensagem {
     WARP_NAO_ENCONTRADO(Tag.ERRO, "Warp não existe."),
     XYZ_DEVE_SER_NUMERO(Tag.ERRO, "X, Y e Z devem ser números"),
     SPAWN_NAO_SETADO(Tag.ERRO, "O spawn do servidor não foi setado!"),
-    SPAWN_SETADO(Tag.SUCESSO, "Spawn setado!");
+    SPAWN_SETADO(Tag.SUCESSO, "Spawn setado!"),
+    ONLINE(Tag.AVISO, "Tempo online no server: &d{horas} horas &ee &d{minutos} minutos&e!");
 
     private final String mensagem;
 

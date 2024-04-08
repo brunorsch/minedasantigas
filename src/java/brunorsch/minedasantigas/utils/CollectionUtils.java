@@ -15,7 +15,7 @@ public class CollectionUtils {
     }
 
     @SafeVarargs
-    public static <K, V> Map<K, V> mapOf(Map.Entry<K, V>... entries) {
+    public static <K, V> Map<K, V> mapOf(Entry<K, V>... entries) {
         HashMap<K, V> map = new HashMap<>();
 
         for (final Entry<K, V> entry : entries) {
